@@ -1,36 +1,70 @@
 <!DOCTYPE html>
 <html>
 
-	<head lang="en-US"> <!-- "lang" attribute is meant to assist search engines and browsers. -->
-		<!-- HTML Meta -->
-		<div> <!-- You should include the following <meta> element in all your web pages -->
-			<meta charset="UTF-8"> <!-- Define the character set used. -->
-			<meta name="description" content="Free Web tutorials"> <!-- Define a description of your web page -->
-			<meta name="keywords" content="HTML, CSS, JavaScript"> <!-- Define keywords for search engines. -->
-			<meta name="author" content="Billy Jjoey"> <!-- Define the author of a page. -->
-			<meta http-equiv="refresh" content="1200"> <!-- Refresh document every 30 seconds -->
-			<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Setting the viewport to make your website look good on all devices. The viewport is the user's visible area of a web page. It varies with the device - it will be smaller on a mobile phone than on a computer screen. The "width=device-width" part sets the width of the page to follow the screen-width of the device (which will vary depending on the device). The "initial-scale=1.0" part sets the initial zoom level when the page is first loaded by the browser. -->
-		</div>
+<head lang="en-US">
+  <meta charset="UTF-8"> <!-- Define the character set used. -->
+  <meta name="description" content="Free Web tutorials"> <!-- Define a description of your web page -->
+  <meta name="keywords" content="HTML, CSS, JavaScript"> <!-- Define keywords for search engines. -->
+  <meta name="author" content="Billy Jjoey"> <!-- Define the author of a page. -->
+  <meta http-equiv="refresh" content="1200"> <!-- Refresh document every 20 minutes -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensure responsive design -->
 
-		<!-- HTML Base -->
-		<base href="index.html" target="_blank"> <!-- The <base> element specifies the base URL and/or target for all relative URLs in a page. The <base> tag must have either an href or a target attribute present, or both. There can only be one single <base> element in a document! -->
+  <title>PDF Read</title> <!-- The page title for SEO -->
 
-		<!-- HTML Title -->
-		<title>PDF Read</title> <!-- The <title> element is required in HTML documents! It provides a title for the page when it is added to favorites. 🌟 The page title is very important for search engine optimization (SEO). The text is used by search engine algorithms to decide the order when listing pages in search results. -->
+  <style>
+    /* Body styling to ensure the background scales well */
+    body {
+      background-image: url('image/background-1.png');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* Take full height of the viewport */
+    }
 
-	</head>
+    /* Container for the PDF to ensure responsiveness */
+    .pdf-container {
+      width: 100%;
+      max-width: 1000px; /* Max width for larger screens */
+      height: 80vh; /* Use 80% of the viewport height */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+    }
 
+    /* Embed tag styling for the PDF */
+    embed {
+      width: 100%; /* Makes the PDF scale with the width of the container */
+      height: 100%; /* Makes the PDF fill the container */
+      border: none;
+    }
 
-	<body style="
-		background-image: url('image/background-1.png');
-		background-repeat: no-repeat;
-		background-attachment: fixed;
-  		background-size: cover;">
-  
-			<div>
-				<embed src="pdf/bitcoin.pdf" width="300" height="400" type="application/pdf">
-			</div>
-    
-	</body>
+    /* Media query for smaller screens (like mobile) */
+    @media (max-width: 768px) {
+      .pdf-container {
+        height: 60vh; /* Reduce height on smaller screens */
+        padding: 5px;
+      }
+
+      embed {
+        width: 100%; /* Ensure PDF takes full width on smaller screens */
+        height: auto; /* Let height adjust automatically */
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="pdf-container">
+    <embed src="pdf/bitcoin.pdf" type="application/pdf">
+  </div>
+
+</body>
 
 </html>
